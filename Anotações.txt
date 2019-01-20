@@ -1,0 +1,52 @@
+try - tenta realizar algo, caso der certo termina
+catch - pega a exceção que pode vir a ocorrer
+finally - acontece depois do try, independente de dar certo ou não a operação, geralmente utilizado
+para fechar conexões, terminar o uso de algo
+throw - lança a exceção para o elemento acima da pilha
+throw new Exception() - Lança uma nova exceção criada pelo dev
+ArgumentException - Exceção de argumento
+InnerException - Exceção interna que originou a nova exceção
+
+using - Usado para liberar automaticamente recursos quando terminado a utilizacao do objeto
+
+
+Criação de classe de tratamento de exceção
+
+Colocar onde chamar tudo (controller) um try catch para pegar a exceção generica e colocar numa
+pagina de erro com o codigo da excecao para que o usuário mande
+
+Criar try catch especifico para cada metodo com situações possíveis e gravar num log
+
+Separar exceções por ações em que ocorreram, por exemplo, em cadastrar request
+responder request, parametrizar, conectar com o email 
+
+Criar arquivo de log para logar as exceções do gerenciamento e motor do request
+
+Pegar exceção mais especifica no comeco, no final ter o tratamento generico de exceções
+
+Colocar try catch com throw para lançar a exceção para o topo da pilha onde foi chamado
+
+Try catch do motor onde roda a parametrização e respostas, contando o trtamento de exceções nos metodos,
+porem lancando a excecao um nivel acima para ser pega no topo da pilha para ser tratada
+
+
+ex:
+
+try
+{
+	// your code...
+}
+catch(DivideByZeroException ex)
+{
+	Console.WriteLine("Não é possível divisão por 0");
+}
+catch(Exception ex)
+{
+                Console.WriteLine($"Codigo erro { ex.HResult}");
+                Console.WriteLine($"Erro de { ex.Message}\n");
+                Console.WriteLine($"Pilha de rastreio {ex.StackTrace}");
+}
+
+
+Exception.Message - Mensagem da exceção
+Exception.StackTrace - Localização na pilha de chamadas de onde ocorrreu o erro
